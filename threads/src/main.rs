@@ -1,27 +1,13 @@
 use std::thread;
 use std::time::Duration;
-
 fn main() {
-    // Spawn the first thread
-    let handle1 = thread::spawn(|| {
-        for i in 1..=5 {
-            println!("Thread 1: Count {}", i);
-            thread::sleep(Duration::from_millis(500)); // Simulate work
+    let handle = thread::spawn(|| {
+        for i in 1..10000 {
+            println!("printing from thread {}", i);
         }
     });
-
-    // Spawn the second thread
-    let handle2 = thread::spawn(|| {
-        for i in 1..=5 {
-            println!("Thread 2: Count {}", i);
-            thread::sleep(Duration::from_millis(500)); // Simulate work
-        }
-    });
-
-    // Ensure both threads finish before the main thread exits
-    handle1.join().unwrap();
-    handle2.join().unwrap();
-
-    println!("Both threads are done!");
+    handle.join().unwrap();
+    for i in 1..5000 {
+        println!("printing from main {}", i);
+    }
 }
-
