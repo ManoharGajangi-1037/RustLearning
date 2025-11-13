@@ -1,0 +1,6 @@
+[package]
+name = "calling_trait_method_from_other_method"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

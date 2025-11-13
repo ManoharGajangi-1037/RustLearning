@@ -9,7 +9,7 @@
 fn get_name()->&'static str{
     "John"
 }
-fn get_random_name<'a>(a:&'a str,b:&'a str)->&'a str{
+fn get_random_name<'a,'b>(a:&'a str,b:&'a str)->&'a str{
  //here we might return a or b so we are having lifetimes as a for both and mentioning 'a for &str 
     a
 }
@@ -58,4 +58,5 @@ fn get_full_name(fullname:&str)->&str{
 fn main() {
     let name=get_name();
     let random_name=get_random_name("hello","hii");
+    println!("{}",name);
 }
